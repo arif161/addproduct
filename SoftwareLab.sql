@@ -1,0 +1,6 @@
+CREATE TABLE user_id (email varchar(50) NOT NULL, pass varchar(50) NOT NULL, name varchar(50) NOT NULL, PRIMARY KEY (email));
+CREATE TABLE user_info (email varchar(50) NOT NULL, address varchar(255) NOT NULL, description varchar(500) NOT NULL, phone_no varchar(15) NOT NULL, total_given_ad int(11) DEFAULT 0 NOT NULL, profile_photo varchar(255) NOT NULL, PRIMARY KEY (email));
+CREATE TABLE ad (id varchar(50) NOT NULL, owners_email varchar(50) NOT NULL, category varchar(50) NOT NULL, city varchar(50) NOT NULL, local_area varchar(50) NOT NULL, description varchar(500) NOT NULL, price float NOT NULL, product_name varchar(255) NOT NULL, phone_no varchar(15) NOT NULL, date_time datetime NOT NULL, image_path varchar(255) NOT NULL, status bit(1) NOT NULL, PRIMARY KEY (id));
+CREATE TABLE comment_on_product (product_id varchar(65) NOT NULL, commented_user_email varchar(50) NOT NULL, comment varchar(500) NOT NULL, date_time datetime NOT NULL, PRIMARY KEY (product_id, date_time));
+CREATE TABLE post (owner_email varchar(50) NOT NULL, post_no int(11) NOT NULL, post_content varchar(700) NOT NULL, date_time datetime NOT NULL, PRIMARY KEY (owner_email, post_no));
+CREATE TABLE post_comment (post_id varchar(65) NOT NULL, commented_user_email varchar(50) NOT NULL, comment varchar(500) NOT NULL, date_time int(11) NOT NULL, PRIMARY KEY (post_id, date_time));
